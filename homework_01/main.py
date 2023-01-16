@@ -16,14 +16,6 @@ def power_numbers(*numbers):
 
 
 
-# filter types
-ODD = "odd"
-EVEN = "even"
-PRIME = "prime"
-
-
-
-
 def is_prime(input_number):
     """
     Функция, которая проверяет простое ли число.
@@ -66,7 +58,10 @@ def filter_numbers(numbers_list, filter_type = ODD):
 
 
 
-
+# filter types
+ODD = "odd"
+EVEN = "even"
+PRIME = "prime"
 print (power_numbers(1, 2, 5, 7))
 print (filter_numbers([1, 2, 3], ODD))
 print (filter_numbers([2, 3, 4, 5], EVEN))
