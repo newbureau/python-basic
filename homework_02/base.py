@@ -1,8 +1,5 @@
 from abc import ABC
-
-
-# import exceptions
-from homework_02 import exceptions
+from homework_02.exceptions import LowFuelError, NotEnoughFuel
 
 
 class Vehicle(ABC):
@@ -20,10 +17,10 @@ class Vehicle(ABC):
             if self.fuel > 0:
                 self.started = True
             else:
-                raise exceptions.LowFuelError("Low fuel")
+                raise LowFuelError("Low fuel")
 
     def move(self, distance):
         if self.fuel >= self.fuel_consumption * distance:
             self.fuel -= self.fuel_consumption * distance
         else:
-            raise exceptions.NotEnoughFuel("Not enough fuel")
+            raise NotEnoughFuel("Not enough fuel")

@@ -2,20 +2,20 @@
 создайте класс `Plane`, наследник `Vehicle`
 """
 from homework_02.base import Vehicle
-from homework_02 import exceptions
+from homework_02.exceptions import CargoOverload
 
 
 class Plane(Vehicle):
-    def __init__(self, weight, fuel, fuel_consumption, cargo=0, max_cargo=2000):
+    def __init__(self, weight, fuel, fuel_consumption, max_cargo, cargo):
         super().__init__(weight, fuel, fuel_consumption)
-        self.cargo = cargo
         self.max_cargo = max_cargo
+        self.cargo = cargo
 
     def load_cargo(self, number):
         if self.cargo + number <= self.max_cargo:
             self.cargo += number
         else:
-            raise exceptions.CargoOverload
+            raise CargoOverload("Over load")
 
     def remove_all_cargo(self):
         cargo_old = self.cargo
